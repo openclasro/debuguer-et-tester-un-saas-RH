@@ -8,6 +8,7 @@ export default class {
     this.onNavigate = onNavigate
     this.store = store
     const buttonNewBill = document.querySelector(`button[data-testid="btn-new-bill"]`)
+    console.log(buttonNewBill)
     if (buttonNewBill) buttonNewBill.addEventListener('click', this.handleClickNewBill)
     const iconEye = document.querySelectorAll(`div[data-testid="icon-eye"]`)
     if (iconEye) iconEye.forEach(icon => {
@@ -34,11 +35,13 @@ export default class {
       .list()
       .then(snapshot => {
         const bills = snapshot
+          
           .map(doc => {
             try {
               return {
                 ...doc,
                 date: formatDate(doc.date),
+                dateSort: doc.date,  // ajouter un champs pour le trie des bills car le champs date a été modifier avec la fonction formatDate()
                 status: formatStatus(doc.status)
               }
             } catch(e) {
