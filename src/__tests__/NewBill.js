@@ -116,7 +116,7 @@ describe("Given I am connected as an employee", () => {
    describe("When I am on NewBill Page and submit the form", () => {
     beforeEach(() => {
       jest.spyOn(mockStore, "bills")
-       jest.spyOn(console, 'error').mockImplementation(() => {})// Prevent Console.error jest error
+       jest.spyOn(console, 'error').mockImplementation(() => {})
       Object.defineProperty(
         window,
         'localStorage',
